@@ -1,8 +1,14 @@
 pipeline {
     agent any
     stages {
-        // stage test
-
+        stage('Test') {
+            agent {
+                docker { image 'python:3.8' }
+            }
+            steps {
+                sh 'python -m unittest'
+            }
+        }
         stage('Deploy') {
             steps {
                 script {
