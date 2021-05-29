@@ -3,11 +3,10 @@ pipeline {
     stages {
         stage('Test') {
             agent {
-                docker { image 'python:3.8' }
+                dockerfile true
             }
             steps {
-                sh 'pip install -r requirements.txt'
-                sh 'python -m unittest'
+                sh 'python -m unittest discover src'
             }
         }
         stage('Deploy') {
