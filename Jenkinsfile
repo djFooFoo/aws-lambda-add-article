@@ -6,7 +6,7 @@ pipeline {
                 dockerfile true
             }
             steps {
-                sh 'python -m unittest discover src'
+                sh 'python -m unittest'
             }
         }
         stage('Deploy') {
