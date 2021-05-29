@@ -1,4 +1,9 @@
 FROM public.ecr.aws/lambda/python:3.8
 
-COPY application.py ./
+COPY requirements.txt .
+RUN pip install -r requirements.txt && rm requirements.txt
+
+COPY rss rss
+COPY application.py .
+
 CMD ["application.handler"]
