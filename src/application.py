@@ -1,16 +1,17 @@
-from rss.feed_reader import FeedReader
+from rss import feed_reader
+from scraping import scraper
 
 
 def handler(event, context):
-    feed_reader = FeedReader('https://dieterjordens.medium.com/feed')
-    latest_article = feed_reader.get_latest_article()
-    print(latest_article)
+    latest_article_url = feed_reader.get_latest_article_url("https://dieterjordens.medium.com/feed")
+    article = scraper.get_article(latest_article_url)
 
-    return {
-        'statusCode': 200,
-        'body': latest_article
-    }
+    # perform an article update request
+    # upload file to amazon s3
+    # print(article)
+
+    return {"statusCode": 200, "body": latest_article_url}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(handler(None, None))
