@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 
 import newspaper
-import nltk
 
 
 @dataclass

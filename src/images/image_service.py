@@ -57,8 +57,8 @@ def remove_alpha_channel(article_image: Image) -> Image:
 
 def save_image_amazon_s3(article_image_file: io.BytesIO, article_image_filename: str) -> None:
     s3 = boto3.resource('s3',
-                        aws_access_key_id=(os.environ['AWS_ACCESS_KEY_ID']),
-                        aws_secret_access_key=(os.environ['AWS_SECRET_ACCESS_KEY']))
+                        aws_access_key_id=(os.environ['ACCESS_KEY']),
+                        aws_secret_access_key=(os.environ['SECRET_KEY']))
     bucket = s3.Bucket(os.environ['ARTICLE_BUCKET_IMAGES'])
     bucket_object = bucket.Object(article_image_filename)
     bucket_object.upload_fileobj(article_image_file)
