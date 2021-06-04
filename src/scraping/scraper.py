@@ -15,7 +15,8 @@ class Article:
 
 
 def get_article(article_url) -> Article:
-    nltk.download('punkt')
+    nltk.data.path.append("/tmp")
+    nltk.download('punkt', download_dir="/tmp")
     article = newspaper.Article(url=article_url)
     article.build()
     return Article(
