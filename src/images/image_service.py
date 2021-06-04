@@ -34,8 +34,8 @@ def store_image_in_s3(article, image_id) -> None:
 
 def to_jpeg(pil_image: Image) -> BytesIO:
     jpeg_file = BytesIO()
-    pil_image.save(jpeg_file, format="JPEG")
-    return jpeg_file
+    pil_image.save(jpeg_file, format="jpeg")
+    return io.BytesIO(jpeg_file.getvalue())
 
 
 def prepare_preview_image(article_image_content: bytes) -> Image:
