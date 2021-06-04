@@ -18,7 +18,3 @@ class TestFeedReader(unittest.TestCase):
         actual_latest_article_id = get_latest_article_url('an url')
 
         self.assertEqual(expected_latest_article_id, actual_latest_article_id)
-
-
-if __name__ == '__main__':
-    unittest.main()

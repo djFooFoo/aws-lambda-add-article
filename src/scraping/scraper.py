@@ -11,6 +11,7 @@ class Article:
     publication_date: str
     category: str
     introduction: str
+    image_url: str
 
 
 def get_article(article_url) -> Article:
@@ -22,5 +23,6 @@ def get_article(article_url) -> Article:
         title=article.title,
         publication_date=str(article.publish_date)[:10],
         category='Other',
-        introduction=article.meta_description
+        introduction=article.meta_description,
+        image_url=article.top_image
     )
